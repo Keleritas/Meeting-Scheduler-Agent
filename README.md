@@ -97,22 +97,22 @@ python main.py
 
 ## Features
 
-### Task 2 — Trivial Meeting Creation
+### Trivial Meeting Creation
 - Natural language → LLM parses intent → `create_event` tool → Google Calendar API
 
-### Task 3 — Conflict Detection & Past Date Validation
+### Conflict Detection & Past Date Validation
 - **Past date guard**: Rejects any request with a datetime in the past
 - **Overlap check**: Fetches existing events and checks for time range overlap using `A_start < B_end AND A_end > B_start`
 - **Multi-turn agent loop**: LLM ↔ tools ↔ LLM until a final text answer is produced
 
-### Task 4 — Smart Alternative Suggestions
+### Smart Alternative Suggestions
 When a conflict is detected:
 1. `analyse_booking_patterns` — studies last 30 days of history
 2. `find_free_slots` — scans 9am–6pm on the requested day for free gaps
 3. `find_free_slots` — also checks the user's lightest days
 4. Agent presents 2–3 ranked alternatives with reasons
 
-### Bonus — Calendar Intelligence Queries
+### Calendar Intelligence Queries
 `query_calendar_insights` answers open-ended questions:
 - Free days this week
 - Busiest day this month
@@ -125,5 +125,3 @@ When a conflict is detected:
 
 - Timezone is set to **Asia/Kolkata (IST)** throughout
 - All-day events are handled gracefully (skipped in duration calculations)
-- The agent loop has a safety cap of **10 iterations** to prevent infinite loops
-- `token.json` and `credentials.json` should be added to `.gitignore`
